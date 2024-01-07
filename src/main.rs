@@ -8,7 +8,7 @@ use crossterm::terminal::{EnterAlternateScreen, LeaveAlternateScreen};
 use rusty_audio::Audio;
 use rust_invaders::{frame, render};
 
-fn main() -> Result<(), Box<dyn Error>>{
+fn main() -> Result<(), Box<dyn Error>> {
     let mut audio = Audio::new();
     audio.add("explode", "sounds/explode.wav");
     audio.add("lose", "sounds/lose.wav");
@@ -56,7 +56,6 @@ fn main() -> Result<(), Box<dyn Error>>{
                     _ => {}
                 }
             }
-
         }
         // Draw & render
         let _ = render_tx.send(curr_frame);
@@ -70,6 +69,5 @@ fn main() -> Result<(), Box<dyn Error>>{
     stdout.execute(Show)?;
     stdout.execute(LeaveAlternateScreen)?;
     terminal::disable_raw_mode()?;
-
     Ok(())
 }
